@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1708413919
+::res://::1708495441
 icon.svg::CompressedTexture2D::4374749891947973248::1708411634::1708411637::1::::<><>::
 ::res://assets/::1708413625
 ::res://assets/fonts/::1708413625
@@ -40,5 +40,5 @@ objects.png::CompressedTexture2D::1640598906987070576::1708411655::1708411655::1
 playeholder_tiles_64.png::CompressedTexture2D::5698848664243755646::1708411655::1708411655::1::::<><>::
 walls.png::CompressedTexture2D::7027920716601258680::1708411655::1708411655::1::::<><>::
 ::res://Scenes/::1708413625
-::res://Scenes/level_map/::1708413625
-level_map.tscn::PackedScene::1149393515056742331::1708413347::0::1::::<><>::uid://c7tqdmc0rgnto::::res://assets/spritesheets/grass.png<>uid://de5kgb3tdyvju::::res://assets/spritesheets/concrete.png<>uid://bslxrqb3fv07r::::res://assets/spritesheets/floor.png<>uid://c7em3eqsilmwe::::res://assets/spritesheets/walls.png<>uid://xmyooq3e6ohs::::res://assets/spritesheets/objects.png<>uid://cngtg736b6apy::::res://assets/spritesheets/playeholder_tiles_64.png
+::res://Scenes/level_map/::1708417150
+level_map.tscn::PackedScene::1149393515056742331::1708417150::0::1::::<><>::uid://c7tqdmc0rgnto::::res://assets/spritesheets/grass.png<>uid://de5kgb3tdyvju::::res://assets/spritesheets/concrete.png<>uid://bslxrqb3fv07r::::res://assets/spritesheets/floor.png<>uid://c7em3eqsilmwe::::res://assets/spritesheets/walls.png<>uid://xmyooq3e6ohs::::res://assets/spritesheets/objects.png<>uid://cngtg736b6apy::::res://assets/spritesheets/playeholder_tiles_64.png
