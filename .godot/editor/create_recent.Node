@@ -1,5 +1,8 @@
-Label
+NavigationLink2D
+NavigationRegion2D
 NavigationAgent2D
+Polygon2D
+Label
 Sprite2D
 CollisionShape2D
 CharacterBody2D
