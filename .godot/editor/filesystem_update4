@@ -1,1 +1,3 @@
 res://Scenes/level_map/level_map.tscn
+res://npc/npc.tscn
+res://npc/npc.gd

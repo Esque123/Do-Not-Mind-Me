@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkv6epx1rpq0o"]
+
+[ext_resource type="Script" path="res://npc/npc.gd" id="1_cdowe"]
+[ext_resource type="Texture2D" uid="uid://bavw4ma30vgnr" path="res://assets/images/soldier1_gun.png" id="1_nmdm0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqtd2"]
+radius = 12.0
+height = 42.0
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_cdowe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, 0)
+texture = ExtResource("1_nmdm0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_lqtd2")
+
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
+path_desired_distance = 10.0
+target_desired_distance = 20.0
+debug_enabled = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -34.0
+offset_top = -169.0
+offset_right = 39.0
+offset_bottom = -94.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ASASsaas
+ASASasas
+ASASasas
+"
