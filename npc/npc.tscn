@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://npc/npc.gd" id="1_cdowe"]
 [ext_resource type="Texture2D" uid="uid://bavw4ma30vgnr" path="res://assets/images/soldier1_gun.png" id="1_nmdm0"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lqtd2"]
-radius = 12.0
-height = 42.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_lx4m1"]
+radius = 17.0294
 
 [node name="NPC" type="CharacterBody2D"]
 script = ExtResource("1_cdowe")
@@ -15,7 +14,7 @@ position = Vector2(10, 0)
 texture = ExtResource("1_nmdm0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_lqtd2")
+shape = SubResource("CircleShape2D_lx4m1")
 
 [node name="NavAgent" type="NavigationAgent2D" parent="."]
 path_desired_distance = 10.0

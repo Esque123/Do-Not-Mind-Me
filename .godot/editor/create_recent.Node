@@ -1,12 +1,12 @@
-Node2D
+Camera2D
 Sprite2D
+CollisionShape2D
+CharacterBody2D
+Node2D
 Marker2D
 NavigationLink2D
 NavigationRegion2D
 NavigationAgent2D
 Polygon2D
 Label
-CollisionShape2D
-CharacterBody2D
-Camera2D
 TileMap
