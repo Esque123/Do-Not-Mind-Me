@@ -42,6 +42,18 @@ func _physics_process(delta):
 	set_label()
 
 
+func get_fov_angle() -> float:
+	var direction = global_position.direction_to(_player_ref.global_position)
+	var dot_p = direction.dot(velocity.normalized())
+	if dot_p >= -1.0 and dot_p <= 1.0:
+		return rad_to_deg(acos(dot_p))
+	return 0.0
+
+
+func player_in_fov() -> bool:
+	return get_fov_angle() < 60.0
+
+
 func raycast_to_player() -> void:
 	player_detect.look_at(_player_ref.global_position)
 
@@ -78,5 +90,7 @@ func set_label() -> void:
 	s += "Reached?: %s\n" % nav_agent.is_target_reached()
 	s += "Target: %s\n" % nav_agent.target_position
 	s += "PlayerDetected: %s\n" % player_detected()
+	s += "Is in FOV: %s\n" % player_in_fov()
+	s += "FOVAngle: %.2f\n" % get_fov_angle()
 	label.text = s
 	
