@@ -1,6 +1,5 @@
 res://npc/npc.tscn
+res://npc/npc.gd
 res://Scenes/level_map/level_map.tscn
 res://Scenes/waypoint/waypoint.tscn
 res://Scenes/player/player.tscn
-res://Scenes/player/player.gd
-res://npc/npc.gd

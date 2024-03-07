@@ -1,3 +1,6 @@
+AudioStreamPlayer2D
+AnimationPlayer
+AnimationTree
 Sprite2D
 Node2D
 RayCast2D
@@ -10,4 +13,3 @@ NavigationRegion2D
 NavigationAgent2D
 Polygon2D
 Label
-TileMap
