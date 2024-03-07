@@ -4,6 +4,9 @@ extends CharacterBody2D
 const SPEED: float = 160.0
 
 
+enum ENEMY_STATE {PATROLLING, CHASING, SEARCHING}
+
+
 @export var patrol_points: NodePath
 
 
@@ -17,6 +20,7 @@ const SPEED: float = 160.0
 var _waypoints: Array = []
 var _current_wp: int = 0
 var _player_ref: Player
+var _state: ENEMY_STATE = ENEMY_STATE.PATROLLING
 
 
 # Called when the node enters the scene tree for the first time.
@@ -37,8 +41,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("set_target"):
 		nav_agent.target_position = get_global_mouse_position()
 	raycast_to_player()
+	update_state()
+	update_movement()
 	update_navigation()
-	process_patrolling()
 	set_label()
 
 
@@ -65,6 +70,10 @@ func player_detected() -> bool:
 	return false
 
 
+func can_see_player() -> bool:
+	return player_in_fov() and player_detected()
+
+
 func update_navigation() -> void:
 	if nav_agent.is_navigation_finished() == false:
 		var next_path_position: Vector2 = nav_agent.get_next_path_position()
@@ -80,9 +89,43 @@ func navigate_wp() -> void:
 	_current_wp += 1
 
 
+func set_nav_to_player() -> void:
+	nav_agent.target_position = _player_ref.global_position
+
+
 func process_patrolling() -> void:
 	if nav_agent.is_navigation_finished() == true:
 		navigate_wp()
+
+
+func process_chasing() -> void:
+	set_nav_to_player()
+
+
+func update_movement() -> void:
+	match _state:
+		ENEMY_STATE.PATROLLING:
+			process_patrolling()
+		ENEMY_STATE.CHASING:
+			process_chasing()
+
+
+func set_state(new_state: ENEMY_STATE) -> void:
+	if new_state == _state:
+		return
+	_state = new_state
+
+
+func update_state() -> void:
+	var new_state = _state
+	var can_see = can_see_player()
+	
+	if can_see_player() == true:
+		new_state = ENEMY_STATE.CHASING
+	else:
+		new_state = ENEMY_STATE.PATROLLING
+		
+	set_state(new_state)
 
 
 func set_label() -> void:
@@ -91,6 +134,6 @@ func set_label() -> void:
 	s += "Target: %s\n" % nav_agent.target_position
 	s += "PlayerDetected: %s\n" % player_detected()
 	s += "Is in FOV: %s\n" % player_in_fov()
-	s += "FOVAngle: %.2f\n" % get_fov_angle()
+	s += "FOVAngle:%.2f %s\n" % [get_fov_angle(), ENEMY_STATE.keys()[_state]]
 	label.text = s
 	
