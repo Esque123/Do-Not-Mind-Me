@@ -35,6 +35,7 @@ var _waypoints: Array = []
 var _current_wp: int = 0
 var _player_ref: Player
 var _state: ENEMY_STATE = ENEMY_STATE.PATROLLING
+var _dbug_mode: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
