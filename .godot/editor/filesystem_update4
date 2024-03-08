@@ -7,3 +7,4 @@ res://Scenes/player/player.tscn
 res://singletons/signal_manager.gd
 res://singletons/sound_manager.gd
 res://npc/npc.gd
+res://Scenes/level_map/level_map.gd
