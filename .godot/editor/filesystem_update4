@@ -11,3 +11,4 @@ res://Scenes/bullet/bullet.gd
 res://npc/npc.gd
 res://Scenes/game_ui/game_ui.tscn
 res://Scenes/game_ui/game_ui.gd
+res://Scenes/level_map/level_map.gd

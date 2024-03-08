@@ -11,6 +11,7 @@ var _time: float = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	score_label.show()
 	SignalManager.on_show_exit.connect(on_show_exit)
 	SignalManager.on_exit.connect(on_exit)
 
@@ -19,6 +20,10 @@ func _ready():
 func _process(delta):
 	_time += delta
 	time_label.text = "%.1f seconds" % _time
+
+
+func update_score(actual: int, target: int) -> void:
+	score_label.text = "%s / %s" % [actual, target]
 
 
 func on_show_exit() -> void:

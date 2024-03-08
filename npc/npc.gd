@@ -35,7 +35,6 @@ var _waypoints: Array = []
 var _current_wp: int = 0
 var _player_ref: Player
 var _state: ENEMY_STATE = ENEMY_STATE.PATROLLING
-var _dbug_mode: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -171,6 +170,11 @@ func set_label() -> void:
 	s += "FOVAngle:%.2f %s\n" % [get_fov_angle(), ENEMY_STATE.keys()[_state]]
 	s += "Speed:%s %s\n" % [player_in_fov(), SPEED[_state]]
 	label.text = s
+
+
+func stop_action() -> void:
+	set_physics_process(false)
+	shoot_timer.stop()
 
 
 func shoot() -> void:
