@@ -42,6 +42,12 @@ func _ready():
 	set_physics_process(false)
 	create_wp()
 	_player_ref = get_tree().get_first_node_in_group("player")
+	#call_deferred("set_physics_process", true)
+	call_deferred("late_setup")
+
+
+func late_setup():
+	await get_tree().physics_frame
 	call_deferred("set_physics_process", true)
 
 
@@ -189,3 +195,7 @@ func _on_timer_timeout():
 	if _state != ENEMY_STATE.CHASING:
 		return
 	shoot()
+
+
+func _on_hit_area_body_entered(body):
+	SignalManager.on_game_over.emit()

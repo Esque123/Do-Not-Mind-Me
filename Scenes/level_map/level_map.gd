@@ -14,14 +14,14 @@ func _ready():
 	game_ui.update_score(_collected, _pickups_count)
 	SignalManager.on_pickup.connect(on_pickup)
 	SignalManager.on_exit.connect(on_exit)
+	SignalManager.on_game_over.connect(on_game_over)
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-
-func on_exit() -> void:
+func stop_all_nodes() -> void:
 	for n in get_tree().get_nodes_in_group("bullet"):
 		n.queue_free()
 	
@@ -30,8 +30,16 @@ func on_exit() -> void:
 	
 	for n in get_tree().get_nodes_in_group("npc"):
 		n.stop_action()
-		
-	print("GAME OVER")
+
+
+func on_game_over() -> void:
+	stop_all_nodes()
+	print("Game Over!")
+
+
+func on_exit() -> void:
+	stop_all_nodes()
+	print("Level Cleared")
 
 
 func check_show_exit() -> void:

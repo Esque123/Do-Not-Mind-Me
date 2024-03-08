@@ -5,6 +5,10 @@ const BOOM: PackedScene = preload("res://Scenes/boom/boom.tscn")
 const SPEED: float = 250.0
 
 
+@onready var timer = $Timer
+
+
+
 var _dir_of_travel: Vector2 = Vector2.ZERO
 var _target_position: Vector2 = Vector2.ZERO
 
@@ -36,4 +40,8 @@ func _on_timer_timeout():
 
 
 func _on_body_entered(body):
-	create_boom()
+	if body.is_in_group("player") == true:
+		timer.stop()
+		SignalManager.on_game_over.emit()
+	else:
+		create_boom()

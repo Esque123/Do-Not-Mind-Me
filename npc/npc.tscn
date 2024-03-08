@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkv6epx1rpq0o"]
+[gd_scene load_steps=9 format=3 uid="uid://dkv6epx1rpq0o"]
 
 [ext_resource type="Script" path="res://npc/npc.gd" id="1_cdowe"]
 [ext_resource type="Texture2D" uid="uid://bavw4ma30vgnr" path="res://assets/images/soldier1_gun.png" id="1_nmdm0"]
@@ -44,6 +44,9 @@ _data = {
 "RESET": SubResource("Animation_arbvh"),
 "alert": SubResource("Animation_p7qub")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pi8nc"]
+radius = 24.0
 
 [node name="NPC" type="CharacterBody2D" groups=["npc"]]
 collision_layer = 0
@@ -98,4 +101,12 @@ volume_db = -20.348
 wait_time = 1.5
 autostart = true
 
+[node name="HitArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+shape = SubResource("CircleShape2D_pi8nc")
+
 [connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]

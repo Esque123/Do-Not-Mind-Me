@@ -1,8 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://yfjddjcnjqld"]
+[gd_scene load_steps=7 format=3 uid="uid://yfjddjcnjqld"]
 
 [ext_resource type="LabelSettings" uid="uid://lpq5jrmct51i" path="res://assets/lg_green_24.tres" id="1_hl2v0"]
 [ext_resource type="Script" path="res://Scenes/game_ui/game_ui.gd" id="1_os7wk"]
 [ext_resource type="LabelSettings" uid="uid://dhrvfsgl18cyw" path="res://assets/lg_red_34.tres" id="2_wbh7q"]
+
+[sub_resource type="Animation" id="Animation_mxpyv"]
+resource_name = "escape"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MC/ExitLabel:label_settings:font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [34, 48, 34]
+}
+
+[sub_resource type="Animation" id="Animation_4v8u8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MC/ExitLabel:label_settings:font_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [34]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_to0d7"]
+_data = {
+"RESET": SubResource("Animation_4v8u8"),
+"escape": SubResource("Animation_mxpyv")
+}
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -73,3 +110,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "MISSION COMPLETE!"
 label_settings = ExtResource("2_wbh7q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_to0d7")
+}
