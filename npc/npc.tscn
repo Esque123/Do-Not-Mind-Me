@@ -1,12 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkv6epx1rpq0o"]
+[gd_scene load_steps=8 format=3 uid="uid://dkv6epx1rpq0o"]
 
 [ext_resource type="Script" path="res://npc/npc.gd" id="1_cdowe"]
 [ext_resource type="Texture2D" uid="uid://bavw4ma30vgnr" path="res://assets/images/soldier1_gun.png" id="1_nmdm0"]
 [ext_resource type="Texture2D" uid="uid://bmqfto3pdt7yc" path="res://assets/images/running_1.png" id="3_if3gk"]
-[ext_resource type="AudioStream" uid="uid://ogumkw4cy2p2" path="res://assets/sounds/gasp1.wav" id="4_aedqw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lx4m1"]
 radius = 17.0294
+
+[sub_resource type="Animation" id="Animation_arbvh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_p7qub"]
 resource_name = "alert"
@@ -23,21 +37,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.843137, 0.6, 0.396078, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_arbvh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_amsvk"]
@@ -92,4 +91,4 @@ libraries = {
 }
 
 [node name="GaspSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_aedqw")
+volume_db = -20.348
