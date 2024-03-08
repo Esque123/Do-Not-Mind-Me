@@ -11,11 +11,16 @@ var _collected: int = 0
 func _ready():
 	_pickups_count = pickups.get_children().size()
 	SignalManager.on_pickup.connect(on_pickup)
+	SignalManager.on_exit.connect(on_exit)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func on_exit() -> void:
+	print("GAME OVER")
 
 
 func check_show_exit() -> void:
