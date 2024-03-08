@@ -11,3 +11,5 @@ res://Scenes/main/main.tscn
 res://Scenes/bullet/bullet.gd
 res://assets/lg_green_24.tres
 res://assets/lg_red_34.tres
+res://Scenes/player/player.gd
+res://npc/npc.gd

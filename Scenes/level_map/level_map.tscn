@@ -372,10 +372,6 @@ layer_3/tile_data = PackedInt32Array(131075, 262146, 3, 196611, 262146, 1, 26214
 layer_4/name = "deco"
 layer_4/tile_data = PackedInt32Array()
 
-[node name="NPC" parent="." instance=ExtResource("7_wut3y")]
-position = Vector2(729, 318)
-patrol_points = NodePath("../Path1")
-
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_nreti")
 
@@ -433,6 +429,32 @@ position = Vector2(237, 359)
 color = Color(0.885847, 0.528519, 0.739493, 0.419608)
 polygon = PackedVector2Array(664, 543, 724, 540, 718, 737, 985, 735, 985, 595, 792, 594, 791, 542, 1040, 543, 1042, 790, 664, 786)
 
+[node name="NPCS" type="Node2D" parent="."]
+
+[node name="NPC" parent="NPCS" instance=ExtResource("7_wut3y")]
+position = Vector2(729, 318)
+patrol_points = NodePath("../../Path1")
+
+[node name="NPC2" parent="NPCS" instance=ExtResource("7_wut3y")]
+position = Vector2(1000, 717)
+patrol_points = NodePath("../../Path2")
+
+[node name="NPC3" parent="NPCS" instance=ExtResource("7_wut3y")]
+position = Vector2(446, 2125)
+patrol_points = NodePath("../../Path3")
+
+[node name="NPC4" parent="NPCS" instance=ExtResource("7_wut3y")]
+position = Vector2(2084, 2146)
+patrol_points = NodePath("../../Path4")
+
+[node name="NPC5" parent="NPCS" instance=ExtResource("7_wut3y")]
+position = Vector2(3238, 1942)
+patrol_points = NodePath("../../Path5")
+
+[node name="NPC6" parent="NPCS" instance=ExtResource("7_wut3y")]
+position = Vector2(2551, 179)
+patrol_points = NodePath("../../Path6")
+
 [node name="Path1" type="Node2D" parent="."]
 
 [node name="Waypoint" parent="Path1" instance=ExtResource("8_5403t")]
@@ -453,8 +475,96 @@ position = Vector2(1530, 1050)
 [node name="Waypoint6" parent="Path1" instance=ExtResource("8_5403t")]
 position = Vector2(1670, 287)
 
+[node name="Path2" type="Node2D" parent="."]
+
+[node name="Waypoint" parent="Path2" instance=ExtResource("8_5403t")]
+position = Vector2(1000, 789)
+
+[node name="Waypoint2" parent="Path2" instance=ExtResource("8_5403t")]
+position = Vector2(1039, 1043)
+
+[node name="Waypoint3" parent="Path2" instance=ExtResource("8_5403t")]
+position = Vector2(1666, 769)
+
+[node name="Waypoint4" parent="Path2" instance=ExtResource("8_5403t")]
+position = Vector2(1326, 1265)
+
+[node name="Waypoint5" parent="Path2" instance=ExtResource("8_5403t")]
+position = Vector2(857, 1278)
+
+[node name="Waypoint6" parent="Path2" instance=ExtResource("8_5403t")]
+position = Vector2(807, 936)
+
+[node name="Path3" type="Node2D" parent="."]
+
+[node name="Waypoint" parent="Path3" instance=ExtResource("8_5403t")]
+position = Vector2(448, 2230)
+
+[node name="Waypoint2" parent="Path3" instance=ExtResource("8_5403t")]
+position = Vector2(433, 1290)
+
+[node name="Waypoint3" parent="Path3" instance=ExtResource("8_5403t")]
+position = Vector2(1402, 1259)
+
+[node name="Waypoint4" parent="Path3" instance=ExtResource("8_5403t")]
+position = Vector2(1376, 2181)
+
+[node name="Waypoint5" parent="Path3" instance=ExtResource("8_5403t")]
+position = Vector2(1045, 1725)
+
+[node name="Path4" type="Node2D" parent="."]
+position = Vector2(794, -155)
+
+[node name="Waypoint" parent="Path4" instance=ExtResource("8_5403t")]
+position = Vector2(1376, 2306)
+
+[node name="Waypoint2" parent="Path4" instance=ExtResource("8_5403t")]
+position = Vector2(1782, 2279)
+
+[node name="Waypoint3" parent="Path4" instance=ExtResource("8_5403t")]
+position = Vector2(1875, 1932)
+
+[node name="Waypoint4" parent="Path4" instance=ExtResource("8_5403t")]
+position = Vector2(2518, 2224)
+
+[node name="Waypoint5" parent="Path4" instance=ExtResource("8_5403t")]
+position = Vector2(2279, 1544)
+
+[node name="Path5" type="Node2D" parent="."]
+position = Vector2(794, -155)
+
+[node name="Waypoint" parent="Path5" instance=ExtResource("8_5403t")]
+position = Vector2(2525, 2099)
+
+[node name="Waypoint2" parent="Path5" instance=ExtResource("8_5403t")]
+position = Vector2(2814, 2029)
+
+[node name="Waypoint3" parent="Path5" instance=ExtResource("8_5403t")]
+position = Vector2(2753, 1268)
+
+[node name="Waypoint4" parent="Path5" instance=ExtResource("8_5403t")]
+position = Vector2(1933, 949)
+
+[node name="Waypoint5" parent="Path5" instance=ExtResource("8_5403t")]
+position = Vector2(2013, 1875)
+
+[node name="Path6" type="Node2D" parent="."]
+position = Vector2(794, -155)
+
+[node name="Waypoint" parent="Path6" instance=ExtResource("8_5403t")]
+position = Vector2(1707, 339)
+
+[node name="Waypoint2" parent="Path6" instance=ExtResource("8_5403t")]
+position = Vector2(1691, 847)
+
+[node name="Waypoint3" parent="Path6" instance=ExtResource("8_5403t")]
+position = Vector2(2116, 1201)
+
+[node name="Waypoint4" parent="Path6" instance=ExtResource("8_5403t")]
+position = Vector2(2233, 616)
+
 [node name="Player" parent="." instance=ExtResource("9_6oy3p")]
-position = Vector2(1445, 538)
+position = Vector2(317, 290)
 
 [node name="Pickups" type="Node2D" parent="."]
 
@@ -462,10 +572,64 @@ position = Vector2(1445, 538)
 position = Vector2(1562, 444)
 
 [node name="PickUp2" parent="Pickups" instance=ExtResource("10_pmsrq")]
-position = Vector2(1562, 444)
+position = Vector2(259, 725)
+
+[node name="PickUp3" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(923, 440)
+
+[node name="PickUp4" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(1154, 1032)
+
+[node name="PickUp5" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(1682, 1688)
+
+[node name="PickUp6" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(267, 2209)
+
+[node name="PickUp7" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(797, 2183)
+
+[node name="PickUp8" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(2583, 1940)
+
+[node name="PickUp9" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(1432, 2202)
+
+[node name="PickUp10" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(2980, 1562)
+
+[node name="PickUp11" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(3598, 1983)
+
+[node name="PickUp12" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(3229, 1015)
+
+[node name="PickUp13" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(2587, 463)
+
+[node name="PickUp14" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(2908, 765)
+
+[node name="PickUp15" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(1636, 801)
+
+[node name="PickUp16" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(211, 1512)
+
+[node name="PickUp17" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(2294, 1457)
+
+[node name="PickUp18" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(1324, 1359)
+
+[node name="PickUp19" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(3472, 1359)
+
+[node name="PickUp20" parent="Pickups" instance=ExtResource("10_pmsrq")]
+position = Vector2(729, 1252)
 
 [node name="Exit" parent="." instance=ExtResource("12_wyvsi")]
-position = Vector2(1883, 498)
+position = Vector2(3360, 129)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
