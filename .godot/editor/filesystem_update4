@@ -1,9 +1,11 @@
-res://Scenes/pick_up/pick_up.tscn
-res://Scenes/exit/exit.tscn
-res://singletons/signal_manager.gd
-res://Scenes/exit/exit.gd
-res://Scenes/level_map/level_map.tscn
-res://Scenes/level_map/level_map.gd
 res://npc/npc.tscn
+res://Scenes/level_map/level_map.tscn
 res://Scenes/waypoint/waypoint.tscn
 res://Scenes/player/player.tscn
+res://Scenes/pick_up/pick_up.tscn
+res://Scenes/exit/exit.tscn
+res://Scenes/boom/boom.gd
+res://Scenes/boom/boom.tscn
+res://Scenes/bullet/bullet.tscn
+res://Scenes/bullet/bullet.gd
+res://npc/npc.gd

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 
+const BULLET = preload("res://Scenes/bullet/bullet.tscn")
+
 const FOV = {
 	ENEMY_STATE.PATROLLING: 60,
 	ENEMY_STATE.CHASING: 120,
@@ -26,6 +28,7 @@ enum ENEMY_STATE {PATROLLING, CHASING, SEARCHING}
 @onready var ray_cast_2d = $PlayerDetect/RayCast2D
 @onready var animation_player = $AnimationPlayer
 @onready var gasp_sound = $GaspSound
+@onready var shoot_timer = $ShootTimer
 
 
 var _waypoints: Array = []
@@ -167,4 +170,17 @@ func set_label() -> void:
 	s += "FOVAngle:%.2f %s\n" % [get_fov_angle(), ENEMY_STATE.keys()[_state]]
 	s += "Speed:%s %s\n" % [player_in_fov(), SPEED[_state]]
 	label.text = s
-	
+
+
+func shoot() -> void:
+	var target = _player_ref.global_position
+	var b = BULLET.instantiate()
+	b.init(target, global_position)
+	get_tree().root.add_child(b)
+	SoundManager.play_laser(gasp_sound)
+
+
+func _on_timer_timeout():
+	if _state != ENEMY_STATE.CHASING:
+		return
+	shoot()

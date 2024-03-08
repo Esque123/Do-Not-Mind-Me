@@ -1,7 +1,9 @@
+Timer
 CollisionShape2D
 Sprite2D
 Area2D
 AudioStreamPlayer2D
+AnimatedSprite2D
 Node2D
 AnimationPlayer
 AnimationTree
@@ -10,5 +12,3 @@ Camera2D
 CharacterBody2D
 Marker2D
 NavigationLink2D
-NavigationRegion2D
-NavigationAgent2D

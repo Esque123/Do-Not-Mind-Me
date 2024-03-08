@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://b21trvevnvokw"]
+
+[ext_resource type="Texture2D" uid="uid://cgkvr40r0ito6" path="res://assets/spritesheets/EXPLOSION_ANIMATION.png" id="1_tvgf3"]
+[ext_resource type="Script" path="res://Scenes/boom/boom.gd" id="2_22d70"]
+[ext_resource type="AudioStream" uid="uid://62s4jlaj4w4k" path="res://assets/sounds/sfx_exp_medium4.wav" id="2_sc2s0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs3x4"]
+atlas = ExtResource("1_tvgf3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3805"]
+atlas = ExtResource("1_tvgf3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c7cbr"]
+atlas = ExtResource("1_tvgf3")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hjhx"]
+atlas = ExtResource("1_tvgf3")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7l0e"]
+atlas = ExtResource("1_tvgf3")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwbbl"]
+atlas = ExtResource("1_tvgf3")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m4fp7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs3x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3805")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c7cbr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hjhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7l0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwbbl")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Boom" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_m4fp7")
+autoplay = "default"
+frame = 5
+frame_progress = 1.0
+script = ExtResource("2_22d70")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_sc2s0")
+volume_db = -17.931
+autoplay = true
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
